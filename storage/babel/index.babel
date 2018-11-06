@@ -1,0 +1,64 @@
+const wordList = document.getElementById('home__hero-title').dataset.wordlist
+  .split(',')
+  .map(function(word) {
+    return {
+      markup: word.split('').map(letter =>
+        `<span>${letter}</span>`
+      ),
+      length: word.length,
+      delay: 6000
+    }
+  });
+const phraseContainer = document.getElementById('phrase-container');
+const randomStartIndex = Math.floor(Math.random()*wordList.length);
+const completeCycle = wordList.reduce((accumulator, currentValue, currentIndex) => {
+  const wordDelay = 2000 + currentValue.length*100*2;
+  currentValue.delay = wordDelay;
+  return accumulator + wordDelay;
+}, 0)
+
+const colours = ['one', 'two', 'three', 'four', 'five'];
+
+// console.log(wordList);
+
+function setNodeClass(characterNode, index, className, initialDelay) {
+  setTimeout(function(){
+    characterNode.classList.toggle(className);
+  }, initialDelay + (100*index));
+}
+
+const cycleWord = function(word, wordDelay, colourIndex) {
+  setTimeout(function(){
+    console.log(colourIndex);
+    phraseContainer.innerHTML = word.markup.join('');
+    phraseContainer.className = colours[colourIndex];
+    for (let i = 0; i < word.length; i++) {
+      setNodeClass(phraseContainer.childNodes[i], i, 'show', 0);
+    }
+    for (let i = word.length - 1; i > -1; i--) {
+      setNodeClass(phraseContainer.childNodes[i], i*-1, 'show', 2500 +(word.length*300));
+    }
+  }, wordDelay);
+};
+
+const cycleWordList = function() {
+  let wordDelay = 0;
+  let colourIndex = 0;
+  for (let wordCount = 0; wordCount < wordList.length; wordCount++){
+    if (wordCount > 0) {
+      wordDelay = wordDelay + wordList[(randomStartIndex + wordCount - 1) % wordList.length].delay;
+    }
+    // console.log(wordDelay);
+    cycleWord(wordList[(randomStartIndex + wordCount) % wordList.length], wordDelay, colourIndex);
+    colourIndex = (colourIndex + 1) % colours.length;
+  }
+}
+
+const cycleWords = function(){
+  cycleWordList();
+  setTimeout(function(){
+    cycleWords();
+  }, completeCycle);
+}
+
+cycleWords();

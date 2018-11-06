@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation - FACULTY SEARCH</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+<div id="nav">
+  <nav id="navbar">
+    <header>Documentation</header>
+    <ul class="nav navbar-nav flex-column">
+      <li> <a class="nav-link" href="#Introduction">Abstract</a></li>
+      <li> <a class="nav-link" href="#Contents">Introduction</a></li>
+      <li> <a class="nav-link" href="#Quick_start">Methodology</a></li>
+      <li> <a class="nav-link" href="#Starter_template">Sample Code</a></li>
+    
+      <li> <a class="nav-link" href="#Community">Team Members</a></li>
+    </ul>
+  </nav>
+</div>
+<main class="col-md-9" id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Abstract</header>
+    <p>Analysing data holds a huge importance in the present and future world. With petabytes of data circulating, the complexity has also been gradually increasing.
+The objective of our project is implement cache functions.
+
+Objective and Goal:  The objective of our project is to implement cache functions and thus make a faculty search portal for our university using the same.
+</p>
+  </section>
+  <section class="main-section" id="Contents">
+    <header>Introduction</header>
+    <p>Main Memory: Refers to physical memory that is internal to the computer. The word main is used to distinguish it from external mass storage devices such as disk drives. Another term for main memory
+is RAM. <br>
+The computer can manipulate only data that is in main memory. Therefore, every program you execute and every file you access must be copied from a storage device into main memory. The amount of main memory on a computer is crucial because it determines how many programs can be executed at
+one time and how much data can be readily available to a program.
+<br>
+Cache: Cache memory is a small-sized type of volatile computer memory that provides high-speed data access to a processor and stores frequently used computer programs, applications and data. It is the fastest memory in a computer, and is typically integrated onto the motherboard and directly embedded in the processor or main random-access memory (RAM).
+<br>
+Cache memory provides faster data storage and access by storing instances of programs and data routinely accessed by the processor. Thus, when a processor requests data that already has an instance in the cache memory, it does not need to go to the main memory or the hard disk to fetch the data.
+<br>
+Cache memory can be primary or secondary cache memory, with primary cache memory directly integrated into (or closest to) the processor. In addition to hardware-based cache, cache memory also can be a disk cache, where a reserved portion on a disk stores and provides access to frequently
+accessed data/applications from the disk.
+
+</p>
+  </section>
+  <section class="main-section" id="Quick_start">
+    <header>Methodology</header>
+    <ul>
+      <li><b>Scrape Data</b>:-We will scrape the data from the respective webpage using Cheerio and store the entire data as an object.
+</li>
+        <li><b>Store Data</b>:-We will then store the scrape data in the required format in the database (online and offline)
+</li>
+        <li><b>Cache Implementation</b>:-Cache contained and number of searches will keep on getting updated as and when new searches are encountered.
+</li>
+      </ul>
+  </section>
+  <section class="main-section" id="Starter_template">
+    <header>Sample Code</header>
+    <p color="#345687"><pre><span style="color:#345687">
+var express = require('express');
+var router = express.Router();
+/* GET home page. */
+router.get('/', function(req, res, next) {
+
+res.render('index', {});
+});
+module.exports = router;
+
+var express = require('express');
+var db = require('../config_db')
+var router = express.Router();
+const cacheSize = 3;
+;</span></pre>
+      </p>
+  </section>
+  
+  <section class="main-section" id="Community">
+    <header>Team Members</header>
+    <p>Stay up to date on the development of Bootstrap and reach out to the community with these helpful resources.</p>
+    <ul>
+      <li>Shreya Deep Anand</li>
+      <li>Ritweak Duggar</li>
+    </ul>
+    <p>Thank you for visiting this!</p>
+  </section><br/><br/>
+ 
+</main>
+  <script src='https://rawgit.com/freeCodeCamp/testable-projects-fcc/master/build/bundle.js'></script>
+
+  
+
+</body>
+
+</html>
