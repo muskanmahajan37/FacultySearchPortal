@@ -3,6 +3,6 @@
 
 ### A web app to search faculties. Made for 'J' Component of Storage Technologies.
 
-#### An autocomplete **`<input type="text" id="name" />`** field for searching faculties of **VIT University, Vellore**.
+#### An autocomplete **`<input type="text" id="name"/>`** field for searching faculties of **VIT University, Vellore**.
 
 ### Check [demo](https://vinitshahdeo.github.io/FacultySearchPortal/) here.
